@@ -1,0 +1,27 @@
+{
+    "name": "mac2ouiAnalyzer",
+    "version": "1.0",
+    "author": "VACE Security",
+    "url": "https://github.com/vace-sec/mac2ouiAnalyzer",
+    "licence": "MIT",
+    "description": "Resolves the organization for a mac address.",
+    "dataTypeList": ["mac"],
+    "baseConfig": "mac2ouiAnalyzer",
+    "command": "mac2ouiAnalyzer/mac2ouiAnalyzer.py",
+    "config": {
+        "max_tlp": 3,
+        "max_pap": 3,
+        "check_tlp": true,
+        "check_pap": true
+    },
+    "configurationItems": [
+        {
+            "name": "db_path",
+            "description": "The path to the oui database (csv)",
+            "type": "string", 
+            "multi": false, 
+            "required": true,
+            "defaultValue": "oui.csv"
+        }
+    ]
+}
