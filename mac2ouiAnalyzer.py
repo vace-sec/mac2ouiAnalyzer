@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+
 from cortexutils.analyzer import Analyzer
 import csv
 from os import path
 import re
 
-def format_mac(mac: str) -> str:
+def format_mac(mac):
     mac = re.sub('[.:-]', '', mac).lower()
     mac = ''.join(mac.split())
     assert len(mac) == 12
@@ -40,7 +43,7 @@ class mac2ouiAnalyzer(Analyzer):
 
         return {'taxonomies': taxonomies}
 
-    def read_oui_database(self, db='oui.csv'):
+    def read_oui_database(self, db):
         """Reads the OUIs from the csv file
 
         :param db: The path to the csv file, default is oui.csv in the same 
@@ -71,7 +74,7 @@ class mac2ouiAnalyzer(Analyzer):
             return 'Not registered'
 
     def run(self):
-        self.ouis = self.read_oui_database(self.get_param('config.db_path', 'oui.csv'))
+        self.ouis = self.read_oui_database(self.get_param('config.db_path', path.join(path.dirname(path.realpath(__file__))), 'oui.csv'))
         self.address = self.get_data()
         self.company = self.find_oui(self.address)
         self.report({

@@ -3,7 +3,7 @@
     "version": "1.0",
     "author": "VACE Security",
     "url": "https://github.com/vace-sec/mac2ouiAnalyzer",
-    "licence": "MIT",
+    "license": "MIT",
     "description": "Resolves the organization for a mac address.",
     "dataTypeList": ["mac"],
     "baseConfig": "mac2ouiAnalyzer",
@@ -21,7 +21,7 @@
             "type": "string", 
             "multi": false, 
             "required": true,
-            "defaultValue": "oui.csv"
+            "defaultValue": "mac2ouiAnalyzer/oui.csv"
         }
     ]
 }
